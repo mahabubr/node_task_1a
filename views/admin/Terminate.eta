@@ -1,0 +1,25 @@
+<% if(it.layout_clean_mode) {%>
+<% layout("../layouts/admin/Clean") %>
+<% } else {%>
+<% layout("../layouts/admin/Main") %>
+<%}%>
+
+<%~ includeFile("../partials/admin/GlobalResponse.eta", it) %>
+
+
+<form class="mt-4 m-5" method="POST" action="/admin/terminate/edit">
+  <div class="form-group">
+    <label for="title"><strong>Title:</strong></label>
+    <input type="text" class="form-control" id="title" name="title" value="<%= it.terminateObj.title %>">
+  </div>
+  <div class="form-group">
+    <label for="disclaimer"><strong>Disclaimer:</strong></label>
+    <textarea class="form-control" id="disclaimer" name="disclaimer" rows="3"><%= it.terminateObj.disclaimer %></textarea>
+  </div>
+  <div class="form-group">
+    <label for="count"><strong>Count:</strong></label>
+    <input type="number" class="form-control" id="count" name="count" value="<%= it.terminateObj.count %>">
+  </div>
+  <button type="submit" class="btn btn-primary">Edit</button>
+</form>
+
